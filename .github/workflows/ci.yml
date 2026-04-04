@@ -12,9 +12,11 @@ permissions:
 jobs:
   lint-test:
     uses: VibeSmiths/.github/.github/workflows/node-lint-test.yml@main
+    secrets: inherit
 
   docker:
     needs: lint-test
     uses: VibeSmiths/.github/.github/workflows/docker-build.yml@main
+    secrets: inherit
     with:
       image-name: mcp-yt-dlp
